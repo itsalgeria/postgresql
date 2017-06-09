@@ -19,7 +19,6 @@ RUN echo 'LANG="en_US.UTF-8"' > /etc/default/locale
 RUN apt-get update && apt-get -yq install postgresql-9.5 postgresql-contrib-9.5
 
 RUN chown -Rf postgres:postgres /var/lib/postgresql #/9.5/main/base
-RUN chmod -R 700 /data/postgresql
 # stop and clear the database as it is init or mounted on container runtime
 RUN /etc/init.d/postgresql stop && \
     rm -rf /var/lib/postgresql/9.5
