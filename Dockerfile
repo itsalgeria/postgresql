@@ -1,9 +1,7 @@
 FROM itsalgeria/postgresql
 MAINTAINER m.benyoub@itsolutions.dz
 
-ENV POSTGIS_VERSION=2.3
-
-RUN apt-get upgrade -y
+RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 
 RUN apt-get update -y
 
