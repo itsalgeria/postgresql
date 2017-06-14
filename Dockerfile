@@ -17,7 +17,10 @@ RUN locale-gen en_US.UTF-8 && update-locale
 RUN echo 'LANG="en_US.UTF-8"' > /etc/default/locale
 
 RUN apt-get update && apt-get -yq install postgresql-9.5 postgresql-contrib-9.5
-RUN apt-get -yq --no-install-recommends --no-install-suggests install postgresql-9.5-postgis-2.3 postgresql-9.5-postgis-2.3-scripts postgresql-9.5-pgrouting
+#RUN apt-get -yq --no-install-recommends --no-install-suggests install postgresql-9.5-postgis-2.3 postgresql-9.5-postgis-2.3-scripts postgresql-9.5-pgrouting
+
+RUN apt-get -y upgrade \
+  && apt-get -y --no-install-recommends --no-install-suggests install -t jessie-pgdg postgresql-9.5-postgis-2.2 postgresql-9.5-postgis-2.2-scripts
 
 RUN chown postgres:postgres /var/lib/postgresql/9.5/main/base
 # stop and clear the database as it is init or mounted on container runtime
