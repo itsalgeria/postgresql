@@ -3,8 +3,8 @@ MAINTAINER m.benyoub@itsolutions.dz
 
 ENV POSTGIS_VERSION=2.3
 
-RUN set -x; \
-        apt-get update \
+RUN apt-get upgrade -y\
+        apt-get update -y\
         && apt-get install -y --no-install-recommends \
         postgis \
         && apt-get clean \
