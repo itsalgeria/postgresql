@@ -27,6 +27,12 @@ RUN /etc/init.d/postgresql stop && \
 
 ADD source/ /etc/postgresql/9.5/main/
 
+RUN apt-get -y -qq install nano htop
+ENV TERM xterm
+
+ENV TZ Africa/Algiers
+RUN cp /usr/share/zoneinfo/Africa/Algiers /etc/localtime
+
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
